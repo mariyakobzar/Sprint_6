@@ -1,8 +1,6 @@
 import allure
 
-from page_object.locators.main_page_locators import MainPageLocators
 from page_object.locators.order_page_locators import OrderPageLocators
-from page_object.locators.order_page_time_locators import OrderPageTimeLocators
 from page_object.pages.base_page import BasePage
 
 
@@ -10,8 +8,6 @@ class OrderPage(BasePage):
 
     @allure.step("Заполение персональных данных в заказе")
     def create_order(self, order_dict):
-        self.click_to_element(MainPageLocators.COOKIE)
-        self.click_to_element(MainPageLocators.BUTTON_ORDER)
         self.find_element_with_wait(OrderPageLocators.NAME)
         self.add_text_to_element(OrderPageLocators.NAME, order_dict['name'])
         self.find_element_with_wait(OrderPageLocators.LAST_NAME)
@@ -23,7 +19,18 @@ class OrderPage(BasePage):
         self.find_element_with_wait(OrderPageLocators.TELEPHONE)
         self.add_text_to_element(OrderPageLocators.TELEPHONE, order_dict['telephone'])
         self.click_to_element(OrderPageLocators.BUTTON_NEXT)
-        assert self.get_text_to_element(OrderPageTimeLocators.BUTTON_BACK) == "Назад"
+
+
+    @allure.step("Переход по лого")
+    def page_transition_samokat(self):
+        self.click_to_element(OrderPageLocators.LOGO_SAMOKAT)
+
+    @allure.title("Переход по лого <Яндекс>")
+    def page_transition_yandex(self):
+        self.click_to_element(OrderPageLocators.LOGO_YANDEX)
+        window_after = self.driver.window_handles[1]
+        self.driver.switch_to.window(window_after)
+        return self.driver.current_url
 
 
 

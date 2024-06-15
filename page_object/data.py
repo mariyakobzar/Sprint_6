@@ -1,3 +1,8 @@
+class Urls():
+    URL_SCOOTER = "https://qa-scooter.praktikum-services.ru/"
+    URL_DZEN = "https://dzen.ru/?yredirect=true"
+
+
 ORDER_INFO_DICT = {
     'name': 'Иван',
     'last_name': 'Иванов',

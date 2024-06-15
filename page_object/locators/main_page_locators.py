@@ -10,4 +10,6 @@ class MainPageLocators():
 
     BUTTON_ORDER_LOW = By.XPATH, '//button[@class="Button_Button__ra12g Button_Middle__1CSJM"]'
 
-    HEAD_TEXT = '//div[@class="Home_Header__iJKdX"]'
+    HEAD_TEXT = By.XPATH, '//div[@class="Home_Header__iJKdX"]'
+
+

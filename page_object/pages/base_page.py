@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from page_object.conftest import driver
+from page_object.data import Urls
 
 
 class BasePage():
@@ -31,4 +32,8 @@ class BasePage():
         return (method, locator)
 
     def scroll_to_element(self, locator):
-        self.execute_script("arguments[0].scrollIntoView();", locator)
+        element = self.driver.find_element(*locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def switch_to_window(self):
+        self.driver.switch_to.window(Urls.URL_DZEN)

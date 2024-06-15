@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from page_object.data import Answers
@@ -21,10 +22,14 @@ class TestMainPage():
             (7, Answers.ANSWER_7)
         ]
     )
+    @allure.title('Открытие вопросов-ответов на главной странице')
     def test_questions_and_answers(self, driver, num, result):
         main_page = MainPage(driver)
         assert main_page.get_answer_text(num) == result
 
+    @allure.title('Кнопка <Заказать в блоке <Как это работает>>')
     def test_check_set_order_button_low(self, driver):
         main_page = MainPage(driver)
         order_page = OrderPage(driver)
+        main_page.check_set_order_button_low()
+        assert order_page.get_text_to_element(OrderPageLocators.HEADER_NAME) == "Для кого самокат"

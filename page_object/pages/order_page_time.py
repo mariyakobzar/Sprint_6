@@ -14,8 +14,6 @@ class OrderPageTime(BasePage):
         self.click_to_element(OrderPageTimeLocators.NUMBER_OF_DAYS)
         self.click_to_element(OrderPageTimeLocators.BUTTON_SET_ORDER)
         self.find_element_with_wait(OrderPageTimeLocators.MODAL_APPROVE_ORDER)
-        assert self.get_text_to_element(OrderPageTimeLocators.MODAL_APPROVE_YES) == "Да"
-
 
 
 

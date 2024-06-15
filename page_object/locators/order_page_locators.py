@@ -12,3 +12,8 @@ class OrderPageLocators():
     TELEPHONE = By.XPATH, '//div[@class="Input_InputContainer__3NykH"][4]/input'
 
     BUTTON_NEXT = By.XPATH, '//button[@class="Button_Button__ra12g Button_Middle__1CSJM"]'
+
+    LOGO_SAMOKAT = By.XPATH, '//img[@src="/assets/scooter.svg"]'
+    LOGO_YANDEX = By.XPATH, '//img[@src="/assets/ya.svg"]'
+
+    DZEN_REDIRECT = By.XPATH, '//button[@class="arrow__button"]'
