@@ -25,13 +25,14 @@ class OrderPage(BasePage):
     def page_transition_samokat(self):
         self.click_to_element(OrderPageLocators.LOGO_SAMOKAT)
 
-    @allure.title("Переход по лого <Яндекс>")
+    @allure.step("Переход по лого <Яндекс>")
     def page_transition_yandex(self):
         self.click_to_element(OrderPageLocators.LOGO_YANDEX)
-        window_after = self.driver.window_handles[1]
-        self.driver.switch_to.window(window_after)
-        return self.driver.current_url
+        window_after = self.window_handlers(1)
+        self.switch_to_window(window_after)
+        return self.get_current_url()
 
-
-
+    @allure.step("Получение заголовка формы заказа")
+    def page_forma_head(self):
+        return self.get_text_to_element(OrderPageLocators.HEADER_NAME)
 

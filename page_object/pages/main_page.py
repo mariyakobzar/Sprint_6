@@ -20,12 +20,12 @@ class MainPage(BasePage):
         self.scroll_to_element(MainPageLocators.BUTTON_ORDER_LOW)
         self.click_to_element(MainPageLocators.BUTTON_ORDER_LOW)
 
-    @allure.title("Переход на страницу заказа")
+    @allure.step("Переход на страницу заказа")
     def page_transition_order(self):
         self.click_to_element(MainPageLocators.COOKIE)
         self.click_to_element(MainPageLocators.BUTTON_ORDER)
 
-    @allure.title("Получаем название заголовка на главной странице")
+    @allure.step("Получаем название заголовка на главной странице")
     def switch_page(self):
         return self.get_text_to_element(MainPageLocators.HEAD_TEXT)
 

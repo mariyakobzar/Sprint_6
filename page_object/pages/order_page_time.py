@@ -15,5 +15,14 @@ class OrderPageTime(BasePage):
         self.click_to_element(OrderPageTimeLocators.BUTTON_SET_ORDER)
         self.find_element_with_wait(OrderPageTimeLocators.MODAL_APPROVE_ORDER)
 
+    @allure.step("Получение названия кнопки <Назад>")
+    def button_back(self):
+        return self.get_text_to_element(OrderPageTimeLocators.BUTTON_BACK)
+
+    @allure.step("Получение названия кнопки <Да> в модальном окне подтверждения заказа")
+    def button_yes(self):
+        return self.get_text_to_element(OrderPageTimeLocators.MODAL_APPROVE_YES)
+
+
 
 

@@ -1,13 +1,6 @@
-from datetime import time
-
 import allure
 
 from page_object.data import Urls
-from page_object.locators.header_page_locators import HeaderPageLocators
-from page_object.locators.main_page_locators import MainPageLocators
-from page_object.pages import header_page
-from page_object.pages.base_page import BasePage
-from page_object.pages.header_page import HeaderPage
 from page_object.pages.main_page import MainPage
 from page_object.pages.order_page import OrderPage
 
@@ -27,4 +20,3 @@ class TestHeaderPage():
         order_page = OrderPage(driver)
         main_page.page_transition_order()
         assert order_page.page_transition_yandex() == Urls.URL_DZEN
-

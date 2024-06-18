@@ -2,7 +2,6 @@ import allure
 import pytest
 
 from page_object.data import Answers
-from page_object.locators.order_page_locators import OrderPageLocators
 from page_object.pages.main_page import MainPage
 from page_object.pages.order_page import OrderPage
 
@@ -32,4 +31,4 @@ class TestMainPage():
         main_page = MainPage(driver)
         order_page = OrderPage(driver)
         main_page.check_set_order_button_low()
-        assert order_page.get_text_to_element(OrderPageLocators.HEADER_NAME) == "Для кого самокат"
+        assert order_page.page_forma_head() == 'Для кого самокат'
